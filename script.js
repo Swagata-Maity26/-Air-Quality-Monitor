@@ -1,0 +1,1 @@
+console.log("AQI website loaded");

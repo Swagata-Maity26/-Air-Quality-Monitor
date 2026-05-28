@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Smart AQI Dashboard</title>
+
+<link rel="stylesheet"
+href="{{url_for('static',filename='style.css')}}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+<h1>🌍 Smart Air Quality Dashboard</h1>
+
+<form method="POST">
+
+<input
+type="text"
+name="city"
+placeholder="Enter city name">
+
+<button type="submit">
+
+Search
+
+</button>
+
+</form>
+
+{% if aqi %}
+
+<div class="main-card">
+
+<div class="aqi-box">
+
+<h2>{{city}}</h2>
+
+<div class="aqi-number">
+
+{{aqi}}
+
+</div>
+
+<h3>{{status}}</h3>
+
+<p>{{advice}}</p>
+
+</div>
+
+<div class="health-cards">
+
+<div class="small-card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3048/3048122.png">
+
+<h3>Children</h3>
+
+<p>
+Children should reduce outdoor activity during high AQI.
+</p>
+
+</div>
+
+<div class="small-card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/4320/4320371.png">
+
+<h3>Older Adults</h3>
+
+<p>
+Older adults should avoid long exposure outside.
+</p>
+
+</div>
+
+<div class="small-card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2964/2964514.png">
+
+<h3>Outdoor Activity</h3>
+
+<p>
+Avoid heavy exercise when AQI becomes poor.
+</p>
+
+</div>
+
+</div>
+
+<div class="guide">
+
+<h2>Air Quality Guide</h2>
+
+<div class="guide-row good">
+
+0-50 → Good 😊
+</div>
+
+<div class="guide-row moderate">
+
+51-100 → Moderate 😐
+</div>
+
+<div class="guide-row unhealthy">
+
+101-150 → Unhealthy
+</div>
+
+<div class="guide-row poor">
+
+151-200 → Poor 😷
+</div>
+
+<div class="guide-row dangerous">
+
+201+ → Hazardous ☠️
+</div>
+
+</div>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
